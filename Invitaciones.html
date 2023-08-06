@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Poppins:wght@300;400;600;700&display=swap');
+
+
+    
+    body {
+      font-family: 'Dancing Script', sans-serif;
+    }
+  </style>
+  <style>
+    body {
+      font-family: 'Dancing Script', sans-serif;
+      font-weight: bold;
+      font-size: 30px;
+      text-align: center;
+    }
+
+
+    .invitacion{
+    margin: 50px auto; 
+    max-width: 600px; 
+    padding: 20px; 
+    border: 3px solid #749625;
+    }
+
+    .posisionar{
+      position: absolute;
+      text-align: center;
+      left: 44%;
+      top: 40%;
+
+    }
+
+    hr{
+      border: 2px solid #749625;
+    }
+
+
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitaciones</title>
+    
+</head>
+<body>
+
+
+
+<div class="invitacion">
+    <div>
+
+        <div class="posisionar">
+          <p>Lizbeth De la cruz</p>
+          <p>&</p>
+          <p>J. Carlos Montes</p>
+          
+        </div> 
+        <div> 
+          <img src="imagenes/Fondo1.jpg" alt="" style="height: 100%; width: 100%;">
+      </div>   
+    
+    </div>
+      <hr>
+
+
+
+
+  <div>
+      
+    <h1>Ceremonia</h1>
+    <p>Catedral Hermosillo</p>
+    <p>24 - FEB - 2024</p>
+    <p>6:00 pm</p>
+      <div>
+        <img src="imagenes/CatedralHMO.jpg" alt="">
+      </div>
+
+
+
+
+
+  
+  
+  </div>
+<div style="font-size: 22px; color: #749625;">
+  <a href="https://www.google.com/maps?q=Catedral+De+Hermosillo&ll=29.075113719367288, -110.95966771338954" target="_blank">
+    Navegar en Google Maps
+  </a>
+</div>
+
+
+<hr>
+
+
+<div>
+  <h1>Recepción</h1>
+  <p>Despues de la ceremonia los esperamos para celebrar una gran fiesta juntos en el salon de eventos </p> 
+  <p>Villa Cantabria</p>
+  <img src="imagenes/Villa-Cantabria.png" alt="" style="max-width: 600px;">
+  <div style="font-size: 22px;">
+  <a href="https://www.google.com/maps?q=Salon+De+Eventos+Villa+Cantabria&ll=29.04782224445513, -110.98679914636135" target="_blank">
+    Navegar en Google Maps
+  </a>
+  </div>
+</div>
+
+
+<hr>
+
+
+<section>
+  <div style="margin-top: 100px">
+    
+    <div>
+      FALTAN
+    </div>    
+</div>
+  <div>
+    <div style="display: flex; gap:5%;justify-content: center;margin-top: 5%;font-size: 25px;">
+      <div>
+        
+        <span id="days"></span>  
+      </div>
+      <div>
+        <span id="hours"> </span> 
+      </div>
+      <div>
+        <span id="minutes"> </span>
+      </div>
+      <div>
+        <span id="seconds"></span>
+      </div>
+   </div>
+  <div style="display: flex;justify-content: center;margin-top: 2%;">  
+    <div>
+       Días
+    </div>
+    <div style="margin-left:5%">
+       Horas  
+    </div>
+    <div style="margin-left:5%">
+       Minutos
+    </div>
+    <div style="margin-left:5%">
+      Segundos
+    </div>
+  </div>  
+  </div>
+</section> 
+<!-- Fin contador regresivo -->
+
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => { 
+    // VARIABLES
+    const DATE_TARGET = new Date('02/17/2024 0:01 AM');
+    // DOM del render
+    const SPAN_DAYS = document.querySelector('span#days');
+    const SPAN_HOURS = document.querySelector('span#hours');
+    const SPAN_MINUTES = document.querySelector('span#minutes');
+    const SPAN_SECONDS = document.querySelector('span#seconds');
+    // Calculos para milisegundos
+    const MILLISECONDS_OF_A_SECOND = 1000;
+    const MILLISECONDS_OF_A_MINUTE = MILLISECONDS_OF_A_SECOND * 60;
+    const MILLISECONDS_OF_A_HOUR = MILLISECONDS_OF_A_MINUTE * 60;
+    const MILLISECONDS_OF_A_DAY = MILLISECONDS_OF_A_HOUR * 24
+
+
+    function updateCountdown() {
+        // Calculos
+        const NOW = new Date()
+        const DURATION = DATE_TARGET - NOW;
+        const REMAINING_DAYS = Math.floor(DURATION / MILLISECONDS_OF_A_DAY);
+        const REMAINING_HOURS = Math.floor((DURATION % MILLISECONDS_OF_A_DAY) / MILLISECONDS_OF_A_HOUR);
+        const REMAINING_MINUTES = Math.floor((DURATION % MILLISECONDS_OF_A_HOUR) / MILLISECONDS_OF_A_MINUTE);
+        const REMAINING_SECONDS = Math.floor((DURATION % MILLISECONDS_OF_A_MINUTE) / MILLISECONDS_OF_A_SECOND);
+        // Render
+        SPAN_DAYS.textContent = REMAINING_DAYS;
+        SPAN_HOURS.textContent = REMAINING_HOURS;
+        SPAN_MINUTES.textContent = REMAINING_MINUTES;
+        SPAN_SECONDS.textContent = REMAINING_SECONDS;
+    }
+
+
+    updateCountdown();
+    // Refrescar cada segundo
+    setInterval(updateCountdown, MILLISECONDS_OF_A_SECOND);
+});
+</script>
+
+</div>    
+</body>
+</html>

@@ -1,0 +1,9 @@
+.imagenfondo {background-image:none
+}
+
+.invitacion {
+    margin: 50px auto;
+    max-width: 600px;
+    padding: 20px;
+    border: 3px solid #749625;
+}
